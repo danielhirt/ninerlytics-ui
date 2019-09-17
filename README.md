@@ -14,6 +14,8 @@ Upsteam repository for user interface and front-end functionality.
 
 * [Front-end Setup and Dependencies](https://docs.google.com/document/d/1LZwoXO3JTNJLqEHj2jZYzslkOiTGoj5hiWzTbbcIewk/edit?usp=sharing "Front-end Setup")
 
+Please refer to the above document after forking and cloning to setup your local Angular environment if you have not already. 
+
 ## Team and Roles
 
 * Daniel Hirt: Scrum Master, Back-end Development, UI/UX Development	
