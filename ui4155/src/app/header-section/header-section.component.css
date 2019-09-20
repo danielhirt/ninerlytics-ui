@@ -1,0 +1,20 @@
+#headersection{
+    background-color: #006633;
+}
+#logo{
+    height: 50px;
+}
+h3{
+    color:white;
+    padding-left: 20px;
+}
+a{
+    color:white;
+    padding-right: 30px;
+}
+fa{
+    color: white;
+}
+.filler{
+    flex: 1 1 auto;
+}

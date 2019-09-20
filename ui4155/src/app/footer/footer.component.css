@@ -1,0 +1,8 @@
+h3{
+    color: white;
+    text-align: center;
+}
+#footer-text{
+    flex: 1 1 auto;
+    text-align: center;
+}
