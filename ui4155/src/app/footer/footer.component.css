@@ -3,6 +3,11 @@ h3{
     text-align: center;
 }
 #footer-text{
-    flex: 1 1 auto;
-    text-align: center;
+    vertical-align: middle;
+}
+fa{
+    color: white;
+}
+a{
+    color: white;
 }
