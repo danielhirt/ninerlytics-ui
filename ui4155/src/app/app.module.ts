@@ -10,6 +10,7 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 
@@ -19,6 +20,7 @@ import {
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -39,6 +41,7 @@ import { HomeComponent } from './home/home.component';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule
     MatToolbarModule,
     MatButtonModule, 
     MatCardModule,
@@ -49,6 +52,7 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatProgressSpinnerModule,
     AppRoutingModule
+
   ],
  
   providers: [],

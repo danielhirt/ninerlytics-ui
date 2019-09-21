@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
 
@@ -9,7 +10,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 })
 export class MainSectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService : ApiService) { }
 
   ngOnInit() {
   }
