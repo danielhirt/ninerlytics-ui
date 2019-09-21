@@ -11,6 +11,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+
+import {
+  MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule
+} from '@angular/material';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,6 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderSectionComponent,
     MainSectionComponent,
     FooterComponent,
+    DashboardComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +42,19 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule
+    MatToolbarModule,
+    MatButtonModule, 
+    MatCardModule,
+    MatInputModule,
+    MatDialogModule,
+    MatTableModule,
+    MatMenuModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    AppRoutingModule
+
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })

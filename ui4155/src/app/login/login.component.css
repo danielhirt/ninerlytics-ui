@@ -1,0 +1,20 @@
+.example-card {
+    width: 400px;
+    margin: 10% auto;
+  }
+  .mat-card-title{
+    font-size: 16px;
+  }
+
+  h5 {
+      padding-top: 5%;
+      
+  }
+
+  img {
+      width: 70%;
+      text-align:center;
+      padding-bottom: 2%;
+  }
+
+ 
