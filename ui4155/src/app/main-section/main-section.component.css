@@ -8,3 +8,22 @@ mat-sidenav{
     width: 300px;
     background-color: #ececec;
 }
+
+#left-side {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+#right-side {
+    width: 70%;
+    height: 100%;
+    float: right;
+}
+
+app-dashboard {
+    float: right;
+}
+
+
+
