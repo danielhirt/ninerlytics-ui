@@ -41,7 +41,7 @@ import { HomeComponent } from './home/home.component';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule, 
     MatCardModule,
