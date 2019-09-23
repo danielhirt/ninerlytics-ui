@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsersPoint } from '../models/userspoint';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { 
     
-    this.API_URL = "http://localhost:8080/api/v1"; // Master entry point to API
+    this.API_URL = environment.backendUrl; // Master entry point to API
   }
 
   // Retrieve all parsed connection data from InfluxDB
