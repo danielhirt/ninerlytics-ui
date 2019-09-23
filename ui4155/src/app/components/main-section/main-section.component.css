@@ -3,27 +3,34 @@ mat-sidenav-container{
 }
 mat-sidenav, mat-sidenav-content{
     padding: 16px;
+    overflow: hidden;
+    
 }
 mat-sidenav{
-    width: 300px;
+    width: 200px;
     background-color: #ececec;
 }
 
+.mat-drawer-container {
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
 #left-side {
-    width: 30%;
+    width: 20%;
     height: 100%;
     float: left;
 }
 
 #right-side {
-    width: 70%;
+    width: 80%;
     height: 100%;
     float: right;
+    padding-right: 4%;
 }
 
-app-dashboard {
-    float: right;
+a {
+    color: black;
 }
-
 
 

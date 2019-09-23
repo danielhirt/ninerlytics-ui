@@ -1,0 +1,48 @@
+.example-card {
+    width: 500px;
+    margin: 10% auto;
+  }
+  .mat-card-title{
+    font-size: 16px;
+  }
+
+  .example-form {
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  .mat-button {
+    width: 100%;
+    background-color: #02814E;
+  }
+
+  .mat-button span {
+    color: white;
+  }
+
+  .copyright {
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Raleway',  sans-serif;
+    font-size: 10px;
+    padding-top: 2%;
+  }
+
+  h5 {
+      padding-top: 5%;
+      font-family: 'Raleway',  sans-serif;
+      font-weight: bold;
+      
+  }
+
+  img {
+      width: 70%;
+      text-align:center;
+      padding-bottom: 2%;
+  }
+
+
+ 

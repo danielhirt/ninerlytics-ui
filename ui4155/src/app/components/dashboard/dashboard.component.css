@@ -1,0 +1,27 @@
+h5 {
+    padding-top: 2%;
+    text-align: center;
+}
+
+iframe {
+    overflow: scroll;
+}
+
+/* Structure */
+table {
+    width: 100%;
+  
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-button {
+    background-color: #02814E;
+  }
+
+  .mat-button span {
+    color: white;
+  }

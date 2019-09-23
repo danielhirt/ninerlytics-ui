@@ -1,0 +1,43 @@
+
+<div class="body">
+<mat-card class="example-card text-center"> 
+        <img src="../../assets/img/logocci.jpg">    
+        <h5 *ngIf="spinner === null">Wifi Data Visualization Tool</h5>
+        <h5 *ngIf="spinner === 'spin' && message ==='login'">Logging you in...</h5>
+        <h5 *ngIf="spinner === 'spin' && message === 'lol1'">Abnormalizing some of the matrices...</h5>
+        <h5 *ngIf="spinner === 'spin' && message === 'lol2'">Procedurally generating buttons...</h5>
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+    </mat-card-header>
+    <mat-progress-spinner style="margin:0 auto;" *ngIf="spinner === 'spin'"
+    class="example-margin text-center"
+    [color]="color"
+    [mode]="mode"
+    [value]="value">
+</mat-progress-spinner>
+    <div *ngIf="spinner === null">
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+              <input matInput placeholder="username@uncc.edu" [(ngModel)]="username" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+          </mat-form-field></td>
+        </tr></table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="login()" style="color: white;">Login</button>
+    </mat-card-actions>
+  </div>
+  <p class="copyright">API Version: api-4155, v0.0.1 <br> &copy; 2019 The University of North Carolina at Charlotte. All rights reserved.</p>
+  </mat-card>
+
+</div>
