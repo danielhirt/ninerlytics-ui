@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class FooterComponent implements OnInit {
 
-  private databaseConnection: boolean;
-  influxDBError: string;
+  public databaseConnection: boolean;
+  public influxDBError: string;
   
   constructor(private APIService: ApiService) { 
     this.databaseConnection = false;

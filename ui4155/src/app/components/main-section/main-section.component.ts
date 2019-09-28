@@ -10,7 +10,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 })
 export class MainSectionComponent implements OnInit {
 
-  opened: boolean;
+  public opened: boolean;
 
   constructor(private apiService : ApiService, private dashboardComponent: DashboardComponent) { 
 

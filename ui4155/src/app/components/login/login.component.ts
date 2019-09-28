@@ -15,15 +15,15 @@ export class LoginComponent implements OnInit {
     this.value = 50;
   }
 
-  username: string;
-  password: string;
+  public username: string;
+  public password: string;
 
-  spinner: string;
-  message: string;
+  public spinner: string;
+  public message: string;
 
-  color: string;
-  mode: string;
-  value: number;
+  public color: string;
+  public mode: string;
+  public value: number;
 
   ngOnInit() {
 
