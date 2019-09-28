@@ -1,6 +1,38 @@
 <div id="left-side">
-<mat-sidenav-container>
-    <mat-sidenav [(opened)]="opened" mode="side"><a href="#" color="primary">Table View</a> <br><br> <p style="cursor:pointer;" (click)="updateViewFunction('grafana')" color="primary">Grafana Graph Views</p></mat-sidenav>
+<mat-sidenav-container  class="example-sidenav-container">
+    <mat-sidenav [(opened)]="opened" mode="side">
+        <div style="text-align: center;"><h6><strong>Dashboards</strong></h6></div>
+        <mat-divider></mat-divider>
+        <br>
+        <fa name="home fa-lg"></fa>&nbsp;&nbsp;<a href="/home" color="primary">Home Dashboard</a>
+        <br><br> 
+        <fa name="map fa-lg"></fa>&nbsp;&nbsp;<a href="#" color="primary">Campus Heat Map</a>
+        <br><br>
+        <fa name="file fa-lg"></fa>&nbsp;&nbsp; <a href="#" color="primary">Reporting & Analytics</a>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center;"><h6><strong>Data Management</strong></h6></div>
+        <mat-divider></mat-divider>
+        <br>
+        <fa name="upload fa-lg"></fa>&nbsp;&nbsp;<a href="/home" color="primary">Upload/Add Data</a>
+        <br><br> 
+        <fa name="server fa-lg"></fa>&nbsp;&nbsp;<a href="#" color="primary">Data Feed Configuration</a>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center;"><h6><strong>Administration</strong></h6></div>
+        <mat-divider></mat-divider>
+        <br>
+        <fa name="cog fa-lg"></fa>&nbsp;&nbsp;<a href="/home" color="primary">Application Settings</a>
+        <br><br> 
+        <fa name="shield fa-lg"></fa>&nbsp;&nbsp;<a href="#" color="primary">Security & NinerNet</a>
+        <br>
+        <br>
+   
+
+
+    </mat-sidenav>
     <mat-sidenav-content>
         <button (click)="opened=!opened" mat-raised-button color="accent">
             <fa name="bars fa-lg"></fa>

@@ -1,13 +1,21 @@
 mat-sidenav-container{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-}
-mat-sidenav, mat-sidenav-content{
-    padding: 16px;
     overflow: hidden;
-    
+}
+
+.example-sidenav-container {
+    flex: 1;
+  }
+
+mat-sidenav, mat-sidenav-content{
+    padding: 18px;
+    overflow: hidden;
 }
 mat-sidenav{
-    width: 200px;
+    height: 100%;
+    width: 75%;
     background-color: #ececec;
 }
 
@@ -27,10 +35,20 @@ mat-sidenav{
     height: 100%;
     float: right;
     padding-right: 4%;
+    padding-left: 2%;
+  
 }
 
 a {
     color: black;
+}
+
+mat-divider {
+    border-top-color: #006633;
+}
+    
+fa {
+    color: #006633;
 }
 
 

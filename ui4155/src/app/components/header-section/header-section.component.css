@@ -27,5 +27,15 @@ fa{
     color: black;
     font-size: 26px;
     font-weight: bold;
+    text-align: center;
 
 }
+
+.mat-button {
+    background-color: #02814E;
+    font-family: 'Raleway',  sans-serif;
+  }
+
+  .mat-button span {
+    color: white;
+  }

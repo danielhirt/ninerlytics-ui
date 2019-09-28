@@ -9,12 +9,14 @@
     <mat-card-header>
       <mat-card-title></mat-card-title>
     </mat-card-header>
+ 
     <mat-progress-spinner style="margin:0 auto;" *ngIf="spinner === 'spin'"
     class="example-margin text-center"
     [color]="color"
     [mode]="mode"
     [value]="value">
-</mat-progress-spinner>
+    </mat-progress-spinner>
+
     <div *ngIf="spinner === null">
     <mat-card-content>
       <form class="example-form">
@@ -22,12 +24,13 @@
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="username@uncc.edu" [(ngModel)]="username" name="username" required>
+              <input matInput placeholder="Email Address" [(ngModel)]="username" name="username" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
-          <td><mat-form-field class="example-full-width">
+          <td>
+            <mat-form-field class="example-full-width">
             <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
           </mat-form-field></td>
         </tr></table>

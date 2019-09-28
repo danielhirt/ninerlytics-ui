@@ -5,11 +5,9 @@
         <h3>Wireless Access Point Visualizer</h3>
         <span class="filler"></span>
         <span>
-              
-            <a class="nav-item" href="#">
-                    <fa name="cog fa-lg"></fa>
-                   Settings
-                </a>
+            <a class="nav-item" routerLink="/login">
+                <fa name="user-circle fa-lg"></fa>
+            </a>
             <a class="nav-item" routerLink="/login">
 
                 <fa name="sign-out fa-lg"></fa>
@@ -19,8 +17,13 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-toolbar style="color: rgba(0, 0, 0, 0.87); background-color: #fafafa">
+<mat-toolbar style="color: rgba(0, 0, 0, 0.87); background-color: #ECECEC; border-bottom: solid 1px rgba(57, 97, 77, 0.4);">
         <mat-toolbar-row>     
-            <h3 class="text-center">Data Visualization & Analytics Dashboard</h3>
+                <h3 class="text-center">Home Dashboard</h3>  
+               
+                <button mat-button style="color: white;">
+                        <fa name="plus-circle fa-lg"></fa>
+                        New Module
+                    </button> 
         </mat-toolbar-row>
     </mat-toolbar>

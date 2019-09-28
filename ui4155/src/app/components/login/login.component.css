@@ -17,6 +17,7 @@
   .mat-button {
     width: 100%;
     background-color: #02814E;
+    font-family: 'Raleway',  sans-serif;
   }
 
   .mat-button span {

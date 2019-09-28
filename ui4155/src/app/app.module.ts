@@ -13,11 +13,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatPaginatorModule
+  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatRadioModule, MatDividerModule, MatExpansionModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import {FileUploadModule} from 'ng2-file-upload';
+import { ErrorComponent } from './components/error/error.component';
+
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     DashboardComponent,
     LoginComponent,
     HomeComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,12 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     MatProgressSpinnerModule,
     AppRoutingModule,
     MatPaginatorModule,
-    NgbModalModule
+    NgbModalModule,
+    FileUploadModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatExpansionModule
 
   ],
 

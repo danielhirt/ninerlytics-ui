@@ -1,16 +1,41 @@
-<h5>Table View - Wifi Access Point Utilization</h5>
-
-
-<!--
-<div *ngIf="dashboardView === 'grafana'">
-<iframe src="http://localhost:8080/d-solo/rrfzWKpZk/4155-project?orgId=1&from=1568606400000&to=1568692740000&theme=light&panelId=2" 
-width="1300" height="400" frameborder="0"></iframe>
-
-<iframe src="http://localhost:8080/d-solo/rrfzWKpZk/4155-project?orgId=1&from=1568606400000&to=1568692740000&theme=light&panelId=4" 
-width="1300" height="400" frameborder="0"></iframe> 
+<div *ngIf="loading === true">
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
--->
+<br>
+<br>
 
+<h6>Campus Heat Map</h6>
+<mat-divider></mat-divider>
+<br>
+<mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+    <mat-icon>layers</mat-icon>&nbsp;Live Heat Map
+    </mat-panel-title>
+    <mat-panel-description>
+        Expand to view
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+<div class="iframe-container">
+<iframe src="https://maps.uncc.edu/#/?nav=plds&ctr=35.30809,-80.73270000000002&z=17" 
+ frameborder="0" allowfullscreen></iframe> 
+</div>
+</mat-expansion-panel>
+<br>
+<br>
+<h6>Data Table</h6>
+<mat-divider></mat-divider>
+<br>
+<mat-accordion>
+  <mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>view_list</mat-icon>&nbsp;Wifi Utilization Table
+      </mat-panel-title>
+      <mat-panel-description>
+        Expand to view
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 <div>
 <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -50,17 +75,54 @@ width="1300" height="400" frameborder="0"></iframe>
   <button mat-button (click)="openDataModal(content)" style="color: white;">
       <fa name="plus-circle fa-lg"></fa>
       Upload/Add Data
-  </button>
+  </button> 
+  &nbsp;
+  <button mat-button style="color: white;">
+    <fa name="download fa-lg"></fa>
+    <a href="http://localhost:8080/api/v1/downloadCSV" style="color:white; text-decoration: none;">
+    Download CSV</a>
+</button>
 </div>
+</mat-expansion-panel>
+<br>
+
+
 
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="add-data">Add Data Point</h4>
+      <h4 class="modal-title" id="add-data">Upload or Add Data </h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
+    <h5>Upload File</h5>
+    <mat-divider></mat-divider>
+    <br>
+      <div>
+          <p style="text-align: center;">Would you like to parse this new data and add to your dashboards? </p>
+          <div style="text-align: center;">
+          <mat-radio-group aria-label="parse-choice" [(ngModel)]="parseFlag">
+              <mat-radio-button value="yes">Yes</mat-radio-button>&nbsp;
+              <mat-radio-button value="no" checked>No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+            <br>
+        <p style="text-align: center;">Upload your data to the system: </p>
+        <div style="text-align:center">
+          <div [innerHtml]='msg' style="color:#02814E"></div>
+          <br>
+          <label style="color: white; background-color: lightslategray; padding: 5px 5px 5px 5px; border-radius: 2px;">
+            <input type="file" (change)="selectFile($event)">Choose File
+          </label>
+            &nbsp;&nbsp;
+            <button mat-button style="color: white;" [(disabled)]="!selectedFiles" (click)="upload()">Upload</button> 
+        </div>
+      </div>
+      <br>
+      <h5>Add Manual Data Point</h5>
+      <mat-divider></mat-divider>
+      <br>
       <p>System time at the point of API request is used currently for the new point's time data. Form needs to handle proper data/time input in the future.</p>
       <form #newDataPointForm="ngForm" (ngSubmit)="saveNewDataPointFunction()">
         <div class="form-group">
@@ -71,12 +133,16 @@ width="1300" height="400" frameborder="0"></iframe>
                     <input matInput placeholder="Disconnections" [(ngModel)]="newDataPoint.disconnections" name="disconnections" required>
                     </mat-form-field>
         </div>
+
         <div class="modal-footer">
-            <button mat-button style="color: white; background-color: red;" (click)="modal.close('Cross click')">Cancel</button>
-            <button mat-button type="submit" style="color: white;">Save</button>
+            <p *ngIf="saveMessage === true" style="color:green;">Successfully added new data point!</p>
+            <p *ngIf="saveMessage === false" style="color:red;">Error adding new data point.</p>
+            <button mat-button style="color: white; background-color: red;" (click)="modal.close('Cross click')">Close</button>
+            <button mat-button type="submit" style="color: white;" *ngIf="saveMessage === null">Save</button>
             
           </div>
       </form>
     </div>
 
   </ng-template>
+

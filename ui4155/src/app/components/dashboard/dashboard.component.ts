@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { UsersPoint } from 'src/app/models/userspoint';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { HttpResponse, HttpEventType } from '@angular/common/http';
+import {FileUploader} from 'ng2-file-upload';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -13,10 +17,21 @@ export class DashboardComponent implements OnInit {
 
   public userConnectionData: UsersPoint[];
   public newDataPoint: UsersPoint;
+  public filePath: string;
 
   public dashboardView: string;
   public closeResult: string;
+  public saveMessage: boolean;
+  public saveResult: string;
+  public loading: boolean;
 
+
+  public selectedFiles: FileList;
+  public currentFile: File;
+  public msg: any;
+  public parseFlag: string;
+
+  @ViewChild('fileInput', {static: true}) fileInput: ElementRef;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -31,8 +46,11 @@ export class DashboardComponent implements OnInit {
   tableDataSource: MatTableDataSource<any>;
 
   ngOnInit() {
-
+    this.loading =  true;
     this.dashboardView = this.APIService.dashboardView;
+    this.parseFlag = "no";
+    this.saveMessage = null;
+
 
     // On init of dashboard component, fetch relevent data. In this case list of connections.
     this.APIService.getAllConnectionData().subscribe(data => {
@@ -46,13 +64,36 @@ export class DashboardComponent implements OnInit {
       console.log("Error retrieving data: ", error);
     });
 
+    this.checkAPI();
+
+
+  }
+
+  public checkAPI() {
+    setTimeout(() => {  
+      this.loading = null;
+    },
+      3000);
+
+  }
+
+  public downloadCSV() {
+    this.APIService.downloadCSV().subscribe(result => {
+      console.log(result);
+      this.saveMessage = true;
+    }, error => {
+      console.log("Error generating CSV: ", error);
+    });
+
   }
 
   public saveNewDataPointFunction() {
     this.APIService.addNewDataPoint(this.newDataPoint).subscribe(result => {
         if (result != null) {
+          this.saveMessage = true;
           console.log("Successfully posted new data point: ", result);
         } else {
+          this.saveMessage = false;
           console.log("Error posting new data point: ");
         }
     }, error => {
@@ -63,6 +104,21 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+  
+  public upload() {
+    this.currentFile = this.selectedFiles.item(0);
+    this.APIService.uploadFile(this.currentFile, this.parseFlag).subscribe(response => {
+		console.log(this.selectedFiles.length)
+     if (response instanceof HttpResponse) {
+		 this.msg = response.body;
+        console.log(response.body);
+      }	  
+    });    
+  }
+
   applyFilter(filterValue: string) {
     this.tableDataSource.filter = filterValue.trim().toLowerCase();
 
@@ -71,12 +127,12 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  public refreshFunction() {
-    this.ngOnInit();
-  }
-
   openDataModal(content) {
     this.modalService.open(content, {ariaLabelledBy: 'add-data', size: 'lg'}).result.then((result) => {
+      this.saveMessage = null;
+      this.msg = null;
+      this.parseFlag = "no";
+      this.selectedFiles = null;
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -91,6 +147,10 @@ export class DashboardComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  public refreshFunction() {
+    this.ngOnInit();
   }
 
 

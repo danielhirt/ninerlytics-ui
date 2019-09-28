@@ -10,12 +10,18 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 })
 export class MainSectionComponent implements OnInit {
 
+  opened: boolean;
+
   constructor(private apiService : ApiService, private dashboardComponent: DashboardComponent) { 
 
 
   }
 
   ngOnInit() {
+    setTimeout(() => {  
+      this.opened = true;
+    },
+      3000);
 
   }
 
@@ -30,6 +36,7 @@ export class MainSectionComponent implements OnInit {
     }
   }
 
-  opened = false;
+
+  
 
 }

@@ -1,6 +1,6 @@
 export class UsersPoint {
-    private time: string;
-    private id: number;
-    private connections: number;
-    private disconnections: number;
+    public time: string;
+    public id: number;
+    public connections: number;
+    public disconnections: number;
 }
