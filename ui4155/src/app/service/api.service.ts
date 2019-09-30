@@ -61,5 +61,9 @@ export class ApiService {
     return this.http.get(environment.backendUrl + '/downloadCSV');
   }
 
+  public testMethod(): Observable<string> {
+    return this.http.get<string>(environment.backendUrl + '/test');
+  }
+
 
 }

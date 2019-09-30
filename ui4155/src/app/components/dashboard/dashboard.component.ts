@@ -51,6 +51,11 @@ export class DashboardComponent implements OnInit {
     this.parseFlag = "no";
     this.saveMessage = null;
 
+    this.APIService.testMethod().subscribe(result => {
+      console.log("SUCCESS: ", result);
+    }, error => {
+      console.log("ERROR: ", error);
+    });
 
     // On init of dashboard component, fetch relevent data. In this case list of connections.
     this.APIService.getAllConnectionData().subscribe(data => {
