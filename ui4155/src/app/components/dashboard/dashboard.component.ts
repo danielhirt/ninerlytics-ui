@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.loading =  true;
-    this.dashboardView = this.APIService.dashboardView;
+    // this.dashboardView = this.APIService.dashboardView;
     this.parseFlag = "no";
     this.saveMessage = null;
 
@@ -56,6 +56,8 @@ export class DashboardComponent implements OnInit {
     }, error => {
       console.log("ERROR: ", error);
     });
+
+     /*
 
     // On init of dashboard component, fetch relevent data. In this case list of connections.
     this.APIService.getAllConnectionData().subscribe(data => {
@@ -67,7 +69,7 @@ export class DashboardComponent implements OnInit {
       this.tableDataSource.sort = this.sort;
     }, error => {
       console.log("Error retrieving data: ", error);
-    });
+    }); */
 
     this.checkAPI();
 
