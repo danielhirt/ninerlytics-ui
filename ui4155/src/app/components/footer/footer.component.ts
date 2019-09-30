@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*
+    
     this.APIService.testInfluxDBConnection().subscribe(result => {
       if (result = true) {
         this.databaseConnection = result;
@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
       console.log("Error with database connection: ", error);
       this.influxDBError = error;
     });
-    */
+    
   }
   
 
