@@ -22,6 +22,11 @@ export class ApiService {
 
   }
 
+  // Retrieve connection data for a specific campus building
+  public getConnectionDataForBuilding(building: string): Observable<UsersPoint[]> {
+    return this.http.get<UsersPoint[]>(environment.backendUrl + '/connectionsByBuilding/b=' + building);
+  }
+
   // Retrieve all parsed connection data from InfluxDB
   public getAllConnectionData(): Observable<UsersPoint[]>  {
     return this.http.get<UsersPoint[]>(environment.backendUrl + '/connections');

@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import {
-  MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
+  MatButtonModule, MatCardModule, MatSelectModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTableModule, MatSortModule,
   MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatRadioModule, MatDividerModule, MatExpansionModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
@@ -57,7 +57,10 @@ import { ErrorComponent } from './components/error/error.component';
     MatRadioModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSortModule,
+    MatCheckboxModule,
+    MatSelectModule
 
   ],
 
