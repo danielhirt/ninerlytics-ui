@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
       this.tableDataSource.sort = this.sort;
     }, error => {
       console.log("Error retrieving data: ", error);
-    });
+    }); 
 
     this.checkAPI();
   }
