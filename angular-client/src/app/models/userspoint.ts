@@ -3,4 +3,5 @@ export class UsersPoint {
     public id: number;
     public connections: number;
     public disconnections: number;
+    public dateAndTime: string;
 }

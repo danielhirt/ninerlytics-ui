@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ui4155": {
+    "angular-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ui4155",
+            "outputPath": "dist/angular-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ui4155:build"
+            "browserTarget": "angular-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ui4155:build:production"
+              "browserTarget": "angular-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ui4155:build"
+            "browserTarget": "angular-client:build"
           }
         },
         "test": {
@@ -119,12 +119,12 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ui4155:serve:production"
+              "devServerTarget": "angular-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ui4155"
+  "defaultProject": "angular-client"
 }
