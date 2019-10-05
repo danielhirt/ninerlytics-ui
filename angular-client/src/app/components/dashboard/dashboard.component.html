@@ -1,0 +1,175 @@
+<div *ngIf="loading === true">
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<br>
+<br>
+
+<h6>Campus Heat Map</h6>
+<mat-divider></mat-divider>
+<br>
+<mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+    <mat-icon>layers</mat-icon>&nbsp;Live Heat Map
+    </mat-panel-title>
+    <mat-panel-description>
+
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+<div class="iframe-container">
+<iframe src="https://maps.uncc.edu/#/?nav=plds&ctr=35.30809,-80.73270000000002&z=17" 
+ frameborder="0" allowfullscreen></iframe> 
+</div>
+</mat-expansion-panel>
+<br>
+<br>
+<h6>Data Table</h6>
+<mat-divider></mat-divider>
+<br>
+<mat-accordion>
+  <mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>view_list</mat-icon>&nbsp;Wifi Utilization Table
+      </mat-panel-title>
+      <mat-panel-description>
+        Displaying data for: {{buildingSelection}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+<div>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <div class="table-container mat-elevation-z8">
+    <table mat-table [dataSource]="tableDataSource" matSort>
+
+        <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)">
+               
+        </mat-checkbox>
+      </td>
+    </ng-container>
+  
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date & Time </th>
+        <td mat-cell *matCellDef="let row"> {{row.dateAndTime}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="connections">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Connections </th>
+        <td mat-cell *matCellDef="let row"> {{row.connections }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="disconnections">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Disconnections </th>
+        <td mat-cell *matCellDef="let row"> {{row.disconnections}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="icon">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header><mat-icon color="primary" (click)="refreshFunction()" style="cursor: pointer;">refresh</mat-icon></th>
+          <td mat-cell *matCellDef="let row"><mat-icon color="primary">info</mat-icon></td>
+        </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+    </table>
+    <mat-form-field style="width:20%; float: left; padding-left: 2%;">
+        <mat-label>Filter By Building</mat-label>
+        <mat-select [(value)]="buildingSelection">
+          <mat-option>All</mat-option>
+          <mat-option value="Atki" (click)="changeTableData(buildingSelection)">Atkins</mat-option>
+          <mat-option value="Unio" (click)="changeTableData(buildingSelection)">Student Union</mat-option>
+          <mat-option value="Wood" (click)="changeTableData(buildingSelection)">Woodward</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]"></mat-paginator>
+  </div>
+  <br>
+  <button mat-button (click)="openDataModal(content)" style="color: white;">
+      <fa name="plus-circle fa-lg"></fa>
+      Upload/Add Data
+  </button> 
+  &nbsp;
+<button mat-button style="color: white;">
+    <fa name="download fa-lg"></fa>
+    <a href="http://localhost:8080/api/v1/downloadCSV" style="color:white; text-decoration: none;">
+    Download CSV</a>
+</button>
+</div>
+</mat-expansion-panel>
+<br>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="add-data">Upload or Add Data </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+    <h5>Upload File</h5>
+    <mat-divider></mat-divider>
+    <br>
+      <div>
+          <p style="text-align: center;">Would you like to parse this new data and add to your dashboards? </p>
+          <div style="text-align: center;">
+          <mat-radio-group aria-label="parse-choice" [(ngModel)]="parseFlag">
+              <mat-radio-button value="yes">Yes</mat-radio-button>&nbsp;
+              <mat-radio-button value="no" checked>No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+            <br>
+        <p style="text-align: center;">Upload your data to the system: </p>
+        <div style="text-align:center">
+          <div [innerHtml]='msg' style="color:#02814E"></div>
+          <br>
+          <label style="color: white; background-color: lightslategray; padding: 5px 5px 5px 5px; border-radius: 2px;">
+            <input type="file" (change)="selectFile($event)">Choose File
+          </label>
+            &nbsp;&nbsp;
+            <button mat-button style="color: white;" [(disabled)]="!selectedFiles" (click)="upload()">Upload</button> 
+        </div>
+      </div>
+      <br>
+      <h5>Add Manual Data Point</h5>
+      <mat-divider></mat-divider>
+      <br>
+      <p>System time at the point of API request is used currently for the new point's time data. Form needs to handle proper data/time input in the future.</p>
+      <form #newDataPointForm="ngForm" (ngSubmit)="saveNewDataPointFunction()">
+        <div class="form-group">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Connections" [(ngModel)]="newDataPoint.connections" name="connections" required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Disconnections" [(ngModel)]="newDataPoint.disconnections" name="disconnections" required>
+                    </mat-form-field>
+        </div>
+
+        <div class="modal-footer">
+            <p *ngIf="saveMessage === true" style="color:green;">Successfully added new data point!</p>
+            <p *ngIf="saveMessage === false" style="color:red;">Error adding new data point.</p>
+            <button mat-button style="color: white; background-color: red;" (click)="modal.close('Cross click')">Close</button>
+            <button mat-button type="submit" style="color: white;" *ngIf="saveMessage === null">Save</button>
+            
+          </div>
+      </form>
+    </div>
+
+  </ng-template>
+

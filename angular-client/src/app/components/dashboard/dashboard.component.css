@@ -1,0 +1,93 @@
+h6 {
+    text-align: center;
+    font-weight: bold;
+    color:  #006633;
+}
+
+iframe {
+    overflow: scroll;
+}
+
+/* Structure */
+table {
+    width: 100%;
+  
+  }
+
+  mat-panel-title, mat-panel-description {
+    font-family: 'Raleway',  sans-serif;
+  }
+
+  
+ .table-container {
+   overflow: auto;
+   height: 360px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-button {
+    background-color: #02814E;
+    font-family: 'Raleway',  sans-serif;
+  }
+
+  .mat-button span {
+    color: white;
+  }
+
+  mat-divider {
+    border-top-color: #006633;
+
+  }
+
+  .drop-box {
+    cursor: pointer;
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    text-align: center;
+    padding: 40px;
+  }
+   
+  .drag-over-title {
+    display: none;
+  }
+   
+  .drop-box.dragover {
+    opacity: 0.6;
+  }
+   
+  .drop-box.dragover .drag-over-title {
+    display: block;
+  }
+   
+  .drop-box.dragover .drag-in-title {
+    display: none;
+  }
+   
+  input[type='file'] {
+    display: none;
+  }
+
+  .iframe-container {
+    overflow: hidden;
+    padding-top: 26.25%;
+    position: relative;
+  }
+   
+  .iframe-container iframe {
+     border: 0;
+     height: 100%;
+     left: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+  }
+
+  mat-progress-bar {
+    color:  #006633;
+  }
+
+  

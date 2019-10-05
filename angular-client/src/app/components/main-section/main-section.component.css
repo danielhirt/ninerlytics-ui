@@ -1,0 +1,54 @@
+mat-sidenav-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.example-sidenav-container {
+    flex: 1;
+  }
+
+mat-sidenav, mat-sidenav-content{
+    padding: 18px;
+    overflow: hidden;
+}
+mat-sidenav{
+    height: 100%;
+    width: 75%;
+    background-color: #ececec;
+}
+
+.mat-drawer-container {
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+#left-side {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+#right-side {
+    width: 80%;
+    height: 100%;
+    float: right;
+    padding-right: 4%;
+    padding-left: 2%;
+  
+}
+
+a {
+    color: black;
+}
+
+mat-divider {
+    border-top-color: #006633;
+}
+    
+fa {
+    color: #006633;
+}
+
+
