@@ -3,7 +3,7 @@
 </div>
 <br>
 <br>
-
+<!--
 <h6>Campus Heat Map</h6>
 <mat-divider></mat-divider>
 <br>
@@ -23,11 +23,13 @@
 </mat-expansion-panel>
 <br>
 <br>
+-->
+
 <h6>Data Table</h6>
 <mat-divider></mat-divider>
 <br>
 <mat-accordion>
-  <mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+  <mat-expansion-panel class="mat-elevation-z8">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <mat-icon>view_list</mat-icon>&nbsp;Wifi Utilization Table
@@ -91,7 +93,7 @@
     <mat-form-field style="width:20%; float: left; padding-left: 2%;">
         <mat-label>Filter By Building</mat-label>
         <mat-select [(value)]="buildingSelection">
-          <mat-option>All</mat-option>
+          <mat-option value="all" (click)="changeTableData(buildingSelection)">All</mat-option>
           <mat-option value="Atki" (click)="changeTableData(buildingSelection)">Atkins</mat-option>
           <mat-option value="Unio" (click)="changeTableData(buildingSelection)">Student Union</mat-option>
           <mat-option value="Wood" (click)="changeTableData(buildingSelection)">Woodward</mat-option>
@@ -108,12 +110,50 @@
   &nbsp;
 <button mat-button style="color: white;">
     <fa name="download fa-lg"></fa>
-    <a href="http://localhost:8080/api/v1/downloadCSV" style="color:white; text-decoration: none;">
+      <a href="http://localhost:8080/api/v1/downloadCSV/{{dataSetForCSV}}" style="color:white; text-decoration: none;">
     Download CSV</a>
 </button>
 </div>
 </mat-expansion-panel>
 <br>
+
+<h6>Campus Heat Map</h6>
+<mat-divider></mat-divider>
+<br>
+<mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+    <mat-icon>layers</mat-icon>&nbsp;Live Heat Map
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <agm-map 
+  [latitude]="lat" 
+  [longitude]="lng"
+  [zoom]="zoom"
+  [mapTypeId]="'hybrid'"
+  (mapReady)="getMapInstance($event)">
+  
+  </agm-map>
+  <br>
+  <mat-form-field style="width:20%; float: left; padding-left: 2%;">
+    <mat-label>Select Time Range</mat-label>
+    <mat-select [(value)]="timeRange">
+      <mat-option value="all">All</mat-option>
+      <mat-option value="hourly">Hourly</mat-option>
+      <mat-option value="24hrs">Daily</mat-option>
+      <mat-option value="weekly">Weekly</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-button style="color: white;">
+    <fa name="fa-bar-chart fa-lg"></fa>
+    Analyze Trends
+</button> 
+
+</mat-expansion-panel>
 
 <ng-template #content let-modal>
     <div class="modal-header">
