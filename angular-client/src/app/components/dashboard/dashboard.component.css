@@ -4,6 +4,10 @@ h6 {
     color:  #006633;
 }
 
+agm-map {
+  height: 650px;
+}
+
 iframe {
     overflow: scroll;
 }

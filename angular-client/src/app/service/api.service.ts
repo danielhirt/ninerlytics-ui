@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { UsersPoint } from '../models/userspoint';
 import { Observable } from 'rxjs';
-
 // Import for back-end API URL
 import { environment } from '../../environments/environment';
 
@@ -13,14 +12,11 @@ import { environment } from '../../environments/environment';
 export class ApiService {
  
   // Objects to store data coming from back-end:
-   public userConnectionData: UsersPoint[];
-
+   public data: UsersPoint[];
    public dashboardView: string;
    public databaseConnection: Observable<boolean>;
 
-  constructor(private http: HttpClient) { 
-
-  }
+  constructor(private http: HttpClient) { }
 
   // Retrieve connection data for a specific campus building
   public getConnectionDataForBuilding(building: string): Observable<UsersPoint[]> {
@@ -40,7 +36,7 @@ export class ApiService {
 
   // Getter to retrieve user data from InfluxDB in components
   public getUserConnectionData(): UsersPoint[] {
-    return this.userConnectionData;
+    return this.data;
   }
 
   // Method to test connection to InfluxDB 
@@ -62,8 +58,8 @@ export class ApiService {
   }
 
   // Method to generate a CSV file of InluxDB data to local filesystem
-  public downloadCSV() {
-    return this.http.get(environment.backendUrl + '/downloadCSV');
+  public downloadCSV(dataSet: string) {
+    return this.http.get(environment.backendUrl + '/downloadCSV' + '/' + dataSet);
   }
 
   public testMethod(): Observable<string> {

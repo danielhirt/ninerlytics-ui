@@ -20,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {FileUploadModule} from 'ng2-file-upload';
 import { ErrorComponent } from './components/error/error.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 
@@ -60,7 +62,11 @@ import { ErrorComponent } from './components/error/error.component';
     MatExpansionModule,
     MatSortModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBNYADv9iNd2hUlLmc0WxEcTWJDqwAyLkk',
+      libraries: ['visualization'],
+    })
 
   ],
 

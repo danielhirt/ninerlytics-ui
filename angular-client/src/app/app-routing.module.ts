@@ -8,7 +8,7 @@ import { ErrorComponent } from './components/error/error.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent},
-  { path: '', component: HomeComponent},
+  { path: '', component: LoginComponent},
   { path: '500', component: ErrorComponent}
 ];
 

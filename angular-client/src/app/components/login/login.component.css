@@ -32,7 +32,7 @@
     padding-top: 2%;
   }
 
-  h5 {
+  h5, h6 {
       padding-top: 5%;
       font-family: 'Raleway',  sans-serif;
       font-weight: bold;
@@ -40,7 +40,7 @@
   }
 
   img {
-      width: 70%;
+      width: 80%;
       text-align:center;
       padding-bottom: 2%;
   }
