@@ -78,18 +78,18 @@ export class DashboardComponent implements OnInit {
 
       this.tableDataSource.paginator = this.paginator;
       this.tableDataSource.sort = this.sort;
-      this.onMapLoad(this.map);
+      //this.onMapLoad(this.map);
     }, error => {
       console.log("Error retrieving data: ", error);
     }); 
     this.checkAPI();  
   }
 
-  public getMapInstance(mapInstance: google.maps.Map) {
+  /*public getMapInstance(mapInstance: google.maps.Map) {
     this.map = mapInstance;
-  }
+  }*/
 
-  public onMapLoad(mapInstance: google.maps.Map) {
+  /*public onMapLoad(mapInstance: google.maps.Map) {
     console.log('entered map function');
     console.log(this.totalUtilizationData);
     let point = {}
@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
     });
    heatmap.setMap(mapInstance);
   
-}
+}*/
 
   public changeTableData(building: string) {
     if (building === 'all'){

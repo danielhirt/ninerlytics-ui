@@ -64,7 +64,7 @@ import { AgmCoreModule } from '@agm/core';
     MatCheckboxModule,
     MatSelectModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBNYADv9iNd2hUlLmc0WxEcTWJDqwAyLkk',
+      apiKey: '',
       libraries: ['visualization'],
     })
 
