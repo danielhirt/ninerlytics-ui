@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span id="footer-text">
+            <a class="nav-item" href="#">
+                <fa name="info-circle fa-lg"></fa>
+                About the Project
+            </a> 
+        </span>
+
+        <p class="text-center">API Version: v1.0.2-SPRT-1 <br> &copy; 2019 The University of North Carolina at Charlotte. All rights reserved.</p>
+        <a class="nav-item" style="float:right; font-size: 12px; text-decoration: none;" href="/500">             
+               <div *ngIf="databaseConnection === true"><fa name="database fa-lg"></fa>&nbsp; DB Status: <strong style="color:greenyellow;">CONNECTED</strong></div>
+               <div *ngIf="databaseConnection === false"><fa name="database fa-lg"></fa>&nbsp; DB Status: <strong style="color:red;"  matTooltip="InfluxDB could not be reached! Check logs. "
+                aria-label="error">NO CONNECTION</strong></div>
+            </a> 
+    </mat-toolbar-row>
+</mat-toolbar>
