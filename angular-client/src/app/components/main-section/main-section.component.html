@@ -42,6 +42,11 @@
 </div>
 
 <div id="right-side">
-<app-dashboard></app-dashboard>
+    <app-card-dashboard *ngIf="router.url === '/home'"></app-card-dashboard>
+    <app-dashboard *ngIf="router.url === '/home/table'"></app-dashboard>
+    <app-heat-map *ngIf="router.url === '/home/heatmap'"></app-heat-map>
+    <app-graph-view *ngIf="router.url === '/home/graph'"></app-graph-view>
+    <app-list-view *ngIf="router.url === '/home/list'"></app-list-view>
+    
 </div>
 

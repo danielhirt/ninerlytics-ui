@@ -21,6 +21,10 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {FileUploadModule} from 'ng2-file-upload';
 import { ErrorComponent } from './components/error/error.component';
 import { AgmCoreModule } from '@agm/core';
+import { CardDashboardComponent } from './components/card-dashboard/card-dashboard.component';
+import { HeatMapComponent } from './components/heat-map/heat-map.component';
+import { ListViewComponent } from './components/list-view/list-view.component';
+import { GraphViewComponent } from './components/graph-view/graph-view.component';
 
 
 
@@ -35,6 +39,10 @@ import { AgmCoreModule } from '@agm/core';
     LoginComponent,
     HomeComponent,
     ErrorComponent,
+    CardDashboardComponent,
+    HeatMapComponent,
+    ListViewComponent,
+    GraphViewComponent,
   ],
   imports: [
     BrowserModule,
