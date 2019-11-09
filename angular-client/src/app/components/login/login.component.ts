@@ -12,6 +12,9 @@ export class LoginComponent implements OnInit {
 
   public username: string;
   public password: string;
+  public authenticated: boolean;
+  public errorMessage: string;
+
   public spinner: string;
   public message: string;
   public color: string;
@@ -24,14 +27,18 @@ export class LoginComponent implements OnInit {
     this.value = 50;
   }
 
-
   ngOnInit() {
     this.spinner = null;
     this.message = null;
+    this.errorMessage = null;
   }
 
   login(): void {
-    if (this.username == 'admin' && this.password == 'admin') {     
+
+    this.APIService.authenticate(this.username, this.password).subscribe(result => {
+      console.log("User role: ", result.role);
+      this.APIService.role = result.role;  
+      this.errorMessage = null; 
       this.APIService.getAllConnectionData().subscribe(result => {
         this.APIService.data = result;
         this.spinner = "spin";
@@ -40,17 +47,17 @@ export class LoginComponent implements OnInit {
       }, error => {
         console.log("Error retrieving data: ", error);
       });
-
       setTimeout(() => {
         this.spinner = null;
         this.login = null;
         this.router.navigate(['home']);
       },
         6000);
- 
-    } else {
-      alert("Invalid credentials!");
-    }
+    }, error => {
+      console.log("Error with authentication!", error);
+      this.errorMessage = "error";
+    });
+     
   }
 }
 

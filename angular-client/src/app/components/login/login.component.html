@@ -6,6 +6,7 @@
         <h5 *ngIf="spinner === 'spin' && message ==='login'">Logging in...</h5>
         <br>
         <h6 *ngIf="spinner === 'spin' && message ==='login'">Building dashboards and constructing data...</h6>
+        <h6 *ngIf="errorMessage === 'error'" style="color:red;">Invalid username or password, please try again.</h6>
     <mat-card-header>
       <mat-card-title></mat-card-title>
     </mat-card-header>
@@ -40,6 +41,6 @@
       <button mat-button (click)="login()" style="color: white;">Login</button>
     </mat-card-actions>
   </div>
-  <p class="copyright">API Version: v1.0.2-SPRT-1 <br> &copy; 2019 The University of North Carolina at Charlotte. All rights reserved.</p>
+  <p class="copyright">API Version: v1.0.4-SPRT-2 <br> &copy; 2019 The University of North Carolina at Charlotte. All rights reserved.</p>
   </mat-card>
 </div>
