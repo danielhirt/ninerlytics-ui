@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
   private heatmapData: any[];
   public timeRange: string;
   public dataSetForCSV: string;
+  public role: string;
   
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -69,6 +70,7 @@ export class DashboardComponent implements OnInit {
 
     // total utilization data from service
     this.totalUtilizationData = this.APIService.data;
+    this.role = this.APIService.role;
 
     // On init of dashboard component, fetch default data. Currently set to Atkins data.
     this.APIService.getConnectionDataForBuilding("Atki").subscribe(data => {

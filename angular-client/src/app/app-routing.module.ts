@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home/graph', component: HomeComponent},
   { path: 'home/heatmap', component: HomeComponent},
   { path: 'home/list', component: HomeComponent},
+  { path: 'home', component: HomeComponent },
   { path: '', component: LoginComponent},
   { path: '500', component: ErrorComponent}
 ];

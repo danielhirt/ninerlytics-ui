@@ -4,6 +4,7 @@ import { UsersPoint } from '../models/userspoint';
 import { Observable } from 'rxjs';
 // Import for back-end API URL
 import { environment } from '../../environments/environment';
+import { ProfileObject } from '../models/profileobject';
 
 
 @Injectable({
@@ -15,8 +16,11 @@ export class ApiService {
    public data: UsersPoint[];
    public dashboardView: string;
    public databaseConnection: Observable<boolean>;
+   public role: string;  // role of current signed in user as determined by backend
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.role = null;
+  }
 
   // Retrieve connection data for a specific campus building
   public getConnectionDataForBuilding(building: string): Observable<UsersPoint[]> {
@@ -66,5 +70,9 @@ export class ApiService {
     return this.http.get<string>(environment.backendUrl + '/test');
   }
 
+  // method to authenticate sign in
+  public authenticate(username: string, password: string): Observable<ProfileObject> {
+    return this.http.get<ProfileObject>(environment.backendAuthUrl + '/authenticate/u=' + username + '/p=' + password);
+  }
 
 }
