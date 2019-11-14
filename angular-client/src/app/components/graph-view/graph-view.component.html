@@ -101,11 +101,11 @@
 
             <mat-form-field style="width:20%; float: right; ">
                 <mat-label>Filter By Building</mat-label>
-                <mat-select [(value)]="buildingSelection">
-                  <mat-option value="all" (click)="changeTableData(buildingSelection)">All</mat-option>
-                  <mat-option value="Atki" (click)="changeTableData(buildingSelection)">Atkins</mat-option>
-                  <mat-option value="Unio" (click)="changeTableData(buildingSelection)">Student Union</mat-option>
-                  <mat-option value="Wood" (click)="changeTableData(buildingSelection)">Woodward</mat-option>
+                <mat-select>
+                  <mat-option value="all">All</mat-option>
+                  <mat-option value="Atki">Atkins</mat-option>
+                  <mat-option value="Unio">Student Union</mat-option>
+                  <mat-option value="Wood">Woodward</mat-option>
                 </mat-select>
               </mat-form-field>
       </div>
