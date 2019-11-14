@@ -15,11 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    if (this.APIService.role != null) {
       this.role = this.APIService.role;
-    }
-
   }
 
 }

@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDashboardComponent implements OnInit {
 
+  public loading: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.loading = true;
+    this.checkAPI();
   }
 
+public checkAPI() {
+  setTimeout(() => {
+    this.loading = null;
+  },
+    3000);
+}
 }

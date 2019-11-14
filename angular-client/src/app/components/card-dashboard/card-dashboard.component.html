@@ -1,31 +1,38 @@
+<div *ngIf="loading === true">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  
+    <h3 class="text-center">Home Dashboard</h3>  
+    <mat-divider></mat-divider>
+
 <div class="container">
     <div class="row">
-        <div class="col-lg-4">
-            <a href="/home/heatmap">
-                <mat-card>
-                    <img mat-card-image src="https://animatedanatomy.com/images/16-9-dummy-image6.jpg" alt="sample text">
+        <div class="col-lg-4 ">
+            <a href="/home/table">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/wifi.webp" alt="sample text" style="height:195px;">
                     <mat-card-content>
-                        <h2>Heat Map</h2>
+                        <h4>Wi-Fi Utilization Tables</h4>
                     </mat-card-content>
                 </mat-card>
             </a> 
         </div>
         <div class="col-lg-4">
-            <a href="/home/table">
-                <mat-card>
-                    <img mat-card-image src="https://animatedanatomy.com/images/16-9-dummy-image6.jpg" alt="sample text">
+            <a href="/home/heatmap">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/heatmap.webp" alt="sample text" style="height:195px;">
                     <mat-card-content>
-                        <h2>Table View</h2>
+                        <h4>Live Interactive Heatmap</h4>
                     </mat-card-content>
                 </mat-card>
             </a>
         </div>
         <div class="col-lg-4">
             <a href="/home/graph">
-                <mat-card>
-                    <img mat-card-image src="https://animatedanatomy.com/images/16-9-dummy-image6.jpg" alt="sample text">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/graph.webp" alt="sample text" style="height:195px;">
                     <mat-card-content>
-                        <h2>Graph View</h2>
+                        <h4>Utilization Graphs and Metrics</h4>
                     </mat-card-content>
                 </mat-card>
             </a>
@@ -35,33 +42,34 @@
     <div class="row">
         <div class="col-lg-4">
             <a href="/home/list">
-                <mat-card>
-                    <img mat-card-image src="https://animatedanatomy.com/images/16-9-dummy-image6.jpg" alt="sample text">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/tracking.gif" alt="sample text" style="height:195px;">
                     <mat-card-content>
-                        <h2>List View</h2>
+                        <h4>MAC Tracking and Metrics</h4>
                     </mat-card-content>
                 </mat-card>
             </a>
         </div>
         <div class="col-lg-4">
             <a href="#">
-                <mat-card>
-                    <img mat-card-image src="https://animatedanatomy.com/images/16-9-dummy-image6.jpg" alt="sample text">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/data.gif" alt="sample text">
                     <mat-card-content>
-                        <h2>API?</h2>
+                        <h4>Data Management</h4>
                     </mat-card-content>
                 </mat-card>
             </a>
         </div>
         <div class="col-lg-4">
             <a href="#">
-                <mat-card>
-                    <img mat-card-image src="https://animatedanatomy.com/images/16-9-dummy-image6.jpg" alt="sample text">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/analytics.webp" alt="sample text"style="height:195px;">
                     <mat-card-content>
-                        <h2>Raw Text?</h2>
+                        <h4>Reporting & Analytics</h4>
                     </mat-card-content>
                 </mat-card>
             </a>
         </div>
     </div>
 </div>
+
