@@ -9,14 +9,14 @@
     <mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <mat-icon>show_chart</mat-icon>&nbsp; Campus-wide Connection Data for: &nbsp;<strong>2019-09-16</strong>&nbsp; to &nbsp;<strong>2019-09-16</strong>
+          <mat-icon>show_chart</mat-icon>&nbsp; Campus-wide Connection Data for: &nbsp;<strong>{{event3}}</strong>&nbsp; to &nbsp;<strong>{{event4}}</strong>
         </mat-panel-title>
         <mat-panel-description>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="iframe-container">
-        <iframe src="http://www.campusheatmap.com:3000/d-solo/DfLdEI-Zz/new-dashboard-copy-2?orgId=1&from=1568606400000&to=1568692799000&panelId=2" width="450" height="525" frameborder="0"></iframe>
-    </div>
+        <iframe id="heatMap" [src]="url" width="450" height="525" frameborder="0"></iframe>
+      </div>
     <br>
     <div>
         <button mat-button style="color: white;">
@@ -37,17 +37,17 @@
             MAC Tracker</a>
               </button>
 
-              <mat-form-field style="width:20%; float: right; padding-left: 2%;">
-                  <input matInput [matDatepicker]="picker" placeholder="Choose a End Date">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>   
+            <mat-form-field style="width:20%; float: right; padding-left: 2%;">
+                <input matInput [matDatepicker]="picker" placeholder="Choose a End Date" (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>   
 
-              <mat-form-field style="width:20%; float: right; padding-left: 2%;">
-                  <input matInput [matDatepicker]="picker2" placeholder="Choose a Start Date">
-                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                  <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
+            <mat-form-field style="width:20%; float: right; padding-left: 2%;">
+                <input matInput [matDatepicker]="picker2" placeholder="Choose a Start Date" (dateInput)="addEvent2('input', $event)" (dateChange)="addEvent2('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
 
          
       </div>
