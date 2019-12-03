@@ -61,6 +61,11 @@ export class ApiService {
     return this.http.request(req);
   }
 
+  public getMacTrackingJSON(start: string, end: string): Observable<any> {
+    return this.http.get(environment.backendUrl + '/generateMacData/s='+ start + '/e=' + end);
+
+  }
+
   // Method to generate a CSV file of InluxDB data to local filesystem
   public downloadCSV(dataSet: string) {
     return this.http.get(environment.backendUrl + '/downloadCSV' + '/' + dataSet);
