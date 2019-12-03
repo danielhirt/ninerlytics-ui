@@ -1,10 +1,16 @@
-<h1>Insert List View Here</h1>
+<div *ngIf="loading === true">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        
+        <h3 class="text-center">MAC Tracking Table</h3>
+        <mat-divider></mat-divider>  
+        <br><br>
 
 <mat-accordion>
     <mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-                <mat-icon>view_list</mat-icon>&nbsp; Displaying data for time range: 
+                <mat-icon>view_list</mat-icon>&nbsp; Displaying data for time range: &nbsp;<strong>{{startDate}}</strong>&nbsp; to &nbsp;<strong>{{endDate}}</strong>
         </mat-panel-title>
         <mat-panel-description>
         </mat-panel-description>

@@ -20,7 +20,8 @@ export class ListViewComponent implements OnInit {
 
   public startDate: string;
   public endDate: string;
-
+  public loading: boolean;
+ 
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -39,6 +40,8 @@ export class ListViewComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.loading = true;
 
     this.startDate = '2019-10-10T15:17:01-04:00';
     this.endDate = '2019-10-10T15:17:03-04:00';
@@ -62,7 +65,16 @@ export class ListViewComponent implements OnInit {
       console.log("Error retrieving MAC data: ", error);
     });
 
+    this.checkAPI();  
+
   
+  }
+
+  public checkAPI() {
+    setTimeout(() => {
+      this.loading = null;
+    },
+      3000);
   }
 
   /** Whether the number of selected elements matches the total number of rows. */

@@ -33,3 +33,9 @@ h3 {
   .mat-button span {
     color: white;
   }
+
+
+  mat-divider {
+    background-color: #046A38;
+    height: 2px;
+}

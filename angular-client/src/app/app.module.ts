@@ -12,8 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import {
-  MatButtonModule, MatCardModule, MatSelectModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTableModule, MatSortModule,
-  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatRadioModule, MatDividerModule, MatExpansionModule
+ MatNativeDateModule, MatButtonModule, MatCardModule, MatSelectModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTableModule, MatSortModule,
+  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatRadioModule, MatDividerModule, MatExpansionModule, MatDatepicker, MatDatepickerModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -71,6 +71,9 @@ import { GraphViewComponent } from './components/graph-view/graph-view.component
     MatSortModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
     AgmCoreModule.forRoot({
       apiKey: '',
       libraries: ['visualization'],
