@@ -3,13 +3,22 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { macJSON } from 'src/app/models/macjson';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-list-view',
   templateUrl: './list-view.component.html',
-  styleUrls: ['./list-view.component.css']
+  styleUrls: ['./list-view.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class ListViewComponent implements OnInit {
+
 
   public macJSON: string;
   public dataJSON: macJSON[];
@@ -21,12 +30,12 @@ export class ListViewComponent implements OnInit {
   public startDate: string;
   public endDate: string;
   public loading: boolean;
- 
+
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  displayedColumns: string[] = ['select','mac', 'start', 'end', 'icon'];
+  displayedColumns: string[] = ['Mac Address'];
   tableDataSource: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
 
@@ -53,9 +62,11 @@ export class ListViewComponent implements OnInit {
       this.dataKeys = Object.keys(this.macJSON);
       this.dataPairs = Object.values(this.macJSON);
 
-      for (let i = 0;  i < this.dataKeys.length; ++i) {   
-       this.dataJSON.push({macAddress: this.dataKeys[i], start: this.dataPairs[i][Object.keys(this.dataPairs[i])[0]], end: this.dataPairs[i][Object.keys(this.dataPairs[i])[1]]});
-      } 
+      for (let i = 0; i < this.dataKeys.length; ++i) {
+        console.log([Object.keys(this.dataPairs[i])[0]]);
+        this.dataJSON.push({ macAddress: this.dataKeys[i], start: this.dataPairs[i][Object.keys(this.dataPairs[i])[0]], end: this.dataPairs[i][Object.keys(this.dataPairs[i])[1]],
+        startTime: [Object.keys(this.dataPairs[i])[0]], endTime: [Object.keys(this.dataPairs[i])[1]] });
+      }
 
       this.tableDataSource.data = this.dataJSON;
       this.tableDataSource.paginator = this.paginator;
@@ -65,9 +76,9 @@ export class ListViewComponent implements OnInit {
       console.log("Error retrieving MAC data: ", error);
     });
 
-    this.checkAPI();  
+    this.checkAPI();
 
-  
+
   }
 
   public checkAPI() {
@@ -108,7 +119,7 @@ export class ListViewComponent implements OnInit {
     }
   }
 
-  
+
   public refreshFunction() {
     this.ngOnInit();
   }
