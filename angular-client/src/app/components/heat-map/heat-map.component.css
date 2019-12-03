@@ -1,0 +1,35 @@
+h3 {
+    font-weight: bold;
+    padding-top: 2%;
+    color: #046A38;
+  }
+  
+
+  mat-progress-bar {
+    color:  #006633;
+  }
+
+
+  .iframe-container {
+    overflow: hidden;
+    padding-top:40%;
+    position: relative;
+  }
+   
+  .iframe-container iframe {
+     border: 0;
+     /* height: 100%; */
+     left: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+  }
+
+  .mat-button {
+    background-color: #02814E;
+    font-family: 'Raleway',  sans-serif;
+  }
+
+  .mat-button span {
+    color: white;
+  }

@@ -1,1 +1,65 @@
-<h1>Insert HeatMap Here</h1>
+<div *ngIf="loading === true">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<h3 class="text-center">Campus Heat Map</h3>
+<mat-divider></mat-divider>  
+<br><br>
+<mat-accordion>
+    <mat-expansion-panel class="mat-elevation-z8" [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>show_chart</mat-icon>&nbsp; Campus-wide Connection Data for Date Range: 2019-09-16 - 2019-09-16
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="iframe-container">
+        <iframe src="http://www.campusheatmap.com:3000/d-solo/DfLdEI-Zz/new-dashboard-copy-2?orgId=1&from=1568606400000&to=1568692799000&panelId=2" width="450" height="525" frameborder="0"></iframe>
+    </div>
+    <br>
+    <div>
+        <button mat-button style="color: white;">
+            <fa name="download fa-lg"></fa>
+              <a href="#" style="color:white; text-decoration: none;">
+            Download CSV</a>
+        </button>
+        &nbsp;
+        <button mat-button style="color: white;">
+            <fa name="fighter-jet fa-lg"></fa>
+              <a href="" style="color:white; text-decoration: none;">
+             Perform Analysis</a>
+        </button>
+        &nbsp;
+        <button mat-button style="color: white;">
+            <fa name="street-view fa-lg"></fa>
+              <a href="" style="color:white; text-decoration: none;">
+            MAC Tracker</a>
+              </button>
+
+              <mat-form-field style="width:20%; float: right; padding-left: 2%;">
+                <mat-label>End Date: YYYY-MM-DD</mat-label>
+                <mat-select>
+                  <mat-option value="all" >All</mat-option>
+                  <mat-option value="Atki" >Atkins</mat-option>
+                  <mat-option value="Unio" >Student Union</mat-option>
+                  <mat-option value="Wood" >Woodward</mat-option>
+                </mat-select>
+              </mat-form-field>   
+
+              <mat-form-field style="width:20%; float: right; padding-left: 2%;">
+                  <mat-label>Start Date: YYYY-MM-DD</mat-label>
+                  <mat-select>
+                    <mat-option value="all" >All</mat-option>
+                    <mat-option value="Atki" >Atkins</mat-option>
+                    <mat-option value="Unio" >Student Union</mat-option>
+                    <mat-option value="Wood" >Woodward</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+         
+      </div>
+ 
+</mat-expansion-panel>
+</mat-accordion>
+
