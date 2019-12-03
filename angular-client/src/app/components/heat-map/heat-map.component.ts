@@ -30,10 +30,6 @@ export class HeatMapComponent implements OnInit {
   fixBackwardsDates(date1: Date, date2: Date){    
     this.event1 = date2.getTime().toString();
     this.event2 = date1.getTime().toString();
-    console.log()
-    this.event3 = date2.toDateString();
-    this.event4 = date1.toDateString();
-    
   }
 
   setURL(){
@@ -55,10 +51,6 @@ export class HeatMapComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(urlIn);
   }
   
-
-
-  
-
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
