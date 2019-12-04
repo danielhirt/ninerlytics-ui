@@ -29,6 +29,8 @@ export class DashboardComponent implements OnInit {
   public buildingSelection: string;
   public dataSetForCSV: string;
   public role: string;
+
+  public apiService: ApiService;
   
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -42,6 +44,7 @@ export class DashboardComponent implements OnInit {
     this.tableDataSource = new MatTableDataSource();
     this.newDataPoint = new UsersPoint();
     this.userConnectionData = new Array<UsersPoint>();
+    
   }
 
   ngOnInit() {
@@ -52,20 +55,26 @@ export class DashboardComponent implements OnInit {
     // set initial table data
     this.buildingSelection = "all"; 
     this.dataSetForCSV = "all";
-    // total utilization data from service
-    this.totalUtilizationData = this.APIService.data;
     this.role = this.APIService.role;
 
     // On init of dashboard component, fetch default data. Currently set to Atkins data.
-    this.APIService.getConnectionDataForBuilding("all").subscribe(data => {
+   /* this.APIService.getAllConnectionData().subscribe(data => {
       this.userConnectionData = data;
-      this.tableDataSource.data = this.userConnectionData;
-      this.tableDataSource.paginator = this.paginator;
-      this.tableDataSource.sort = this.sort;
     }, error => {
       console.log("Error retrieving data: ", error);
-    }); 
+    }); */
     this.checkAPI();  
+    this.populateTableWithAllData(this.userConnectionData);
+  }
+
+  
+  public populateTableWithAllData(data: any) {
+
+    this.changeTableData("all");
+    this.tableDataSource.data = data;
+    this.tableDataSource.paginator = this.paginator;
+    this.tableDataSource.sort = this.sort;
+
   }
 
   public changeTableData(building: string) {

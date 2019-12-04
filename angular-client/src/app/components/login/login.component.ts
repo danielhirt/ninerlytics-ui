@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       console.log("Error with authentication!", error);
       this.errorMessage = "error";
     });
-     
+     console.log("LOGIN COMPLETED");
   }
 }
 

@@ -1,7 +1,8 @@
-h3 {
+h3, h6 {
     font-weight: bold;
     padding-top: 2%;
     color: #046A38;
+    font-family: 'Raleway',  sans-serif;
   }
   
 

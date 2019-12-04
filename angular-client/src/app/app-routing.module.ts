@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'home/table', component: HomeComponent},
   { path: 'home/graph', component: HomeComponent},
   { path: 'home/heatmap', component: HomeComponent},
+  { path: 'home/reports', component: HomeComponent},
   { path: 'home/list', component: HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: '', component: LoginComponent},

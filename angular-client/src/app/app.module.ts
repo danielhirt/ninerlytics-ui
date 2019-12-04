@@ -25,6 +25,7 @@ import { CardDashboardComponent } from './components/card-dashboard/card-dashboa
 import { HeatMapComponent } from './components/heat-map/heat-map.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
 import { GraphViewComponent } from './components/graph-view/graph-view.component';
+import { ReportingComponent } from './components/reporting/reporting.component';
 
 
 
@@ -43,6 +44,7 @@ import { GraphViewComponent } from './components/graph-view/graph-view.component
     HeatMapComponent,
     ListViewComponent,
     GraphViewComponent,
+    ReportingComponent,
   ],
   imports: [
     BrowserModule,
