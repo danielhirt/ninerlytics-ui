@@ -30,6 +30,7 @@ export class ListViewComponent implements OnInit {
   public startDate: string;
   public endDate: string;
   public loading: boolean;
+  public expandedElement: null;
 
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
