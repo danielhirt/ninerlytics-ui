@@ -5,9 +5,9 @@ Documentation Author: Daniel Hirt, dhirt@uncc.edu
 
 ## Initial Setup & Dependencies
 
-UI Development Version: **v1.0.2-SPRT-1**
+UI Development Version: **v1.0.4-SPRT-3**
 
-API Development Version: **v1.0.2-SPRT-1**
+API Development Version: **v1.0.4-SPRT-3**
 
 #### Initial Development Environment Setup
 
@@ -96,8 +96,6 @@ Note: Serving the project in this way is only for use when Dockerizing and build
 * Austin Young: UI/UX Development, Front-end Development	
 * Abhinav Kasu: Back-end Development
 * Matthew Walter: Back-end Development
-* Aaron Yow: Back-end Development
-* Andre Raposo: Back-end Development
 * Seth Frady: Front-end Development			
 * Aasim Munshi: Front-end Development				
 * Matthew Shangle: Front-end Development			

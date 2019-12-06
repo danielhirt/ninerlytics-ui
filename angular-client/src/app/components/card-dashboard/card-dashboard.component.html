@@ -1,0 +1,75 @@
+<div *ngIf="loading === true">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  
+    <h3 class="text-center">Home Dashboard</h3>  
+    <mat-divider></mat-divider>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <a href="/home/table">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/wifi.webp" alt="sample text" style="height:195px;">
+                    <mat-card-content>
+                        <h4>Wi-Fi Utilization Tables</h4>
+                    </mat-card-content>
+                </mat-card>
+            </a> 
+        </div>
+        <div class="col-lg-4">
+            <a href="/home/heatmap">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/heatmap.webp" alt="sample text" style="height:195px;">
+                    <mat-card-content>
+                        <h4>Live Interactive Heatmap</h4>
+                    </mat-card-content>
+                </mat-card>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="/home/graph">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/graph.webp" alt="sample text" style="height:195px;">
+                    <mat-card-content>
+                        <h4>Utilization Graphs and Metrics</h4>
+                    </mat-card-content>
+                </mat-card>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="/home/list">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/tracking.gif" alt="sample text" style="height:195px;">
+                    <mat-card-content>
+                        <h4>MAC Tracking and Metrics</h4>
+                    </mat-card-content>
+                </mat-card>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="/home/reports">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/analytics.webp" alt="sample text"style="height:195px;">
+                    <mat-card-content>
+                        <h4>Reporting & Analytics</h4>
+                    </mat-card-content>
+                </mat-card>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a href="#">
+                <mat-card class="mat-elevation-z8">
+                    <img mat-card-image src="../../../assets/img/data.gif" alt="sample text">
+                    <mat-card-content>
+                        <h4>Data Management</h4>
+                    </mat-card-content>
+                </mat-card>
+            </a>
+        </div>
+    </div>
+</div>
+

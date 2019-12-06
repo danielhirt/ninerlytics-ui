@@ -14,6 +14,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class DashboardComponent implements OnInit {
 
   public userConnectionData: UsersPoint[];
+  public totalUtilizationData: UsersPoint[];
   public newDataPoint: UsersPoint;
   public filePath: string;
   public dashboardView: string;
@@ -26,54 +27,75 @@ export class DashboardComponent implements OnInit {
   public msg: any;
   public parseFlag: string;
   public buildingSelection: string;
+  public dataSetForCSV: string;
+  public role: string;
 
+  public apiService: ApiService;
+  
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
+  displayedColumns: string[] = ['select', 'building', 'time', 'connections', 'disconnections', 'icon'];
+  tableDataSource: MatTableDataSource<any>;
+  selection = new SelectionModel<any>(true, []);
 
   constructor(private APIService: ApiService, private modalService: NgbModal) {
     this.tableDataSource = new MatTableDataSource();
     this.newDataPoint = new UsersPoint();
-
+    this.userConnectionData = new Array<UsersPoint>();
+    
   }
-
-  displayedColumns: string[] = ['select', 'time', 'connections', 'disconnections', 'icon'];
-  tableDataSource: MatTableDataSource<any>;
-  selection = new SelectionModel<any>(true, []);
 
   ngOnInit() {
     this.loading = true;
     this.dashboardView = this.APIService.dashboardView;
     this.parseFlag = "no";
     this.saveMessage = null;
-    this.buildingSelection = "Atki";
+    // set initial table data
+    this.buildingSelection = "all"; 
+    this.dataSetForCSV = "all";
+    this.role = this.APIService.role;
 
-    // On init of dashboard component, fetch relevent data. In this case list of connections.
-    this.APIService.getConnectionDataForBuilding("Atki").subscribe(data => {
+    // On init of dashboard component, fetch default data. Currently set to Atkins data.
+   /* this.APIService.getAllConnectionData().subscribe(data => {
       this.userConnectionData = data;
-      this.tableDataSource.data = this.userConnectionData;
-      console.log("User connection data retrieved from API: ", this.userConnectionData);
-
-      this.tableDataSource.paginator = this.paginator;
-      this.tableDataSource.sort = this.sort;
     }, error => {
       console.log("Error retrieving data: ", error);
-    }); 
+    }); */
+    this.checkAPI();  
+    this.populateTableWithAllData(this.userConnectionData);
+  }
 
-    this.checkAPI();
+  
+  public populateTableWithAllData(data: any) {
+
+    this.changeTableData("all");
+    this.tableDataSource.data = data;
+    this.tableDataSource.paginator = this.paginator;
+    this.tableDataSource.sort = this.sort;
+
   }
 
   public changeTableData(building: string) {
+    if (building === 'all'){
+      this.APIService.getAllConnectionData().subscribe(data => {
+        this.userConnectionData = data;
+        this.tableDataSource.data = this.userConnectionData;
+        console.log("User connection data retrieved from API: ", this.userConnectionData);
+      }, error => {
+        console.log("Error retrieving data: ", error);
+      });
+    } else {
+    this.dataSetForCSV = building;
     this.APIService.getConnectionDataForBuilding(building).subscribe(data => {
       this.userConnectionData = data;
       this.tableDataSource.data = this.userConnectionData;
       console.log("User connection data retrieved from API: ", this.userConnectionData);
-
     }, error => {
       console.log("Error retrieving data: ", error);
     });
-
+  }
   }
 
   public checkAPI() {
@@ -81,17 +103,16 @@ export class DashboardComponent implements OnInit {
       this.loading = null;
     },
       3000);
-
   }
 
-  public downloadCSV() {
-    this.APIService.downloadCSV().subscribe(result => {
+  public downloadCSV(dataSet: string) {
+    this.dataSetForCSV = dataSet;
+    console.log("Dataset to generate CSV with: ",this.dataSetForCSV);
+    this.APIService.downloadCSV(this.dataSetForCSV).subscribe(result => {
       console.log(result);
-      this.saveMessage = true;
     }, error => {
       console.log("Error generating CSV: ", error);
     });
-
   }
 
   public saveNewDataPointFunction() {
@@ -106,9 +127,7 @@ export class DashboardComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-
     this.ngOnInit(); // refresh table datasource
-
   }
 
   selectFile(event) {

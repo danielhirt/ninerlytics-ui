@@ -15,8 +15,9 @@ mat-sidenav, mat-sidenav-content{
 }
 mat-sidenav{
     height: 100%;
-    width: 75%;
+    width: 70%;
     background-color: #ececec;
+    border-right: solid 1px #046A38;
 }
 
 .mat-drawer-container {
@@ -40,15 +41,30 @@ mat-sidenav{
 }
 
 a {
-    color: black;
+    color: #046A38;
+    font-family: 'Raleway',  sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+h6 {
+    color: #046A38;
+    font-family: 'Raleway',  sans-serif;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 mat-divider {
-    border-top-color: #006633;
+    background-color: #046A38;
+    height: 1px;
 }
     
 fa {
-    color: #006633;
+    color: #046A38;
 }
 
+mat-sidenav-content button {
+    background-color: #ececec;
+    border: solid 1px #046A38;
+}
 

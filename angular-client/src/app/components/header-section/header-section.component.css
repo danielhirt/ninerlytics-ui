@@ -1,13 +1,20 @@
 #headersection{
-    background-color: #006633;
+    background-color: #046A38;
 }
-#logo{
-    height: 50px;
+img{
+    height: 60px;
 }
+
+mat-toolbar {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
 h3{
     color:white;
     padding-left: 20px;
     font-family: 'Raleway',  sans-serif;
+    font-style: italic;
 }
 a, p {
     color:white;
@@ -17,6 +24,7 @@ a, p {
 }
 fa{
     color: white;
+ 
 }
 .filler{
     flex: 1 1 auto;
@@ -32,7 +40,7 @@ fa{
 }
 
 .mat-button {
-    background-color: #02814E;
+    background-color: #046A38;
     font-family: 'Raleway',  sans-serif;
   }
 

@@ -12,14 +12,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import {
-  MatButtonModule, MatCardModule, MatSelectModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTableModule, MatSortModule,
-  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatRadioModule, MatDividerModule, MatExpansionModule
+ MatNativeDateModule, MatButtonModule, MatCardModule, MatSelectModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatTableModule, MatSortModule,
+  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatRadioModule, MatDividerModule, MatExpansionModule, MatDatepicker, MatDatepickerModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {FileUploadModule} from 'ng2-file-upload';
 import { ErrorComponent } from './components/error/error.component';
+import { AgmCoreModule } from '@agm/core';
+import { CardDashboardComponent } from './components/card-dashboard/card-dashboard.component';
+import { HeatMapComponent } from './components/heat-map/heat-map.component';
+import { ListViewComponent } from './components/list-view/list-view.component';
+import { GraphViewComponent } from './components/graph-view/graph-view.component';
+import { ReportingComponent } from './components/reporting/reporting.component';
+
 
 
 
@@ -33,6 +40,11 @@ import { ErrorComponent } from './components/error/error.component';
     LoginComponent,
     HomeComponent,
     ErrorComponent,
+    CardDashboardComponent,
+    HeatMapComponent,
+    ListViewComponent,
+    GraphViewComponent,
+    ReportingComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +72,14 @@ import { ErrorComponent } from './components/error/error.component';
     MatExpansionModule,
     MatSortModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
+    AgmCoreModule.forRoot({
+      apiKey: '',
+      libraries: ['visualization'],
+    })
 
   ],
 

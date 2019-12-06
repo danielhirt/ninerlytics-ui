@@ -4,6 +4,17 @@ h6 {
     color:  #006633;
 }
 
+h3 {
+  font-weight: bold;
+  padding-top: 2%;
+  color: #046A38;
+}
+
+
+agm-map {
+  height: 650px;
+}
+
 iframe {
     overflow: scroll;
 }
@@ -39,9 +50,9 @@ table {
   }
 
   mat-divider {
-    border-top-color: #006633;
-
-  }
+    background-color: #046A38;
+    height: 2px;
+}
 
   .drop-box {
     cursor: pointer;

@@ -1,18 +1,25 @@
 <div id="left-side">
 <mat-sidenav-container  class="example-sidenav-container">
-    <mat-sidenav [(opened)]="opened" mode="side">
-        <div style="text-align: center;"><h6><strong>Dashboards</strong></h6></div>
+    <mat-sidenav [(opened)]="opened" mode="side" class="mat-elevation-z8">
+        <br>
+        <div style="text-align: center;"><h6>DASHBOARDS</h6></div>
         <mat-divider></mat-divider>
         <br>
         <fa name="home fa-lg"></fa>&nbsp;&nbsp;<a href="/home" color="primary">Home Dashboard</a>
         <br><br> 
-        <fa name="map fa-lg"></fa>&nbsp;&nbsp;<a href="#" color="primary">Campus Heat Map</a>
-        <br><br>
-        <fa name="file fa-lg"></fa>&nbsp;&nbsp; <a href="#" color="primary">Reporting & Analytics</a>
+        <fa name="wifi fa-lg"></fa>&nbsp;&nbsp;<a href="/home/table" color="primary">Wi-Fi Utilization Tables</a>
+        <br><br> 
+        <fa name="map fa-lg"></fa>&nbsp;&nbsp;<a href="/home/heatmap" color="primary">Live Interactive Heatmap</a>
+        <br><br> 
+        <fa name="table fa-lg"></fa>&nbsp;&nbsp;<a href="/home/graph" color="primary">Utilization Graphs & Metrics</a>
+        <br><br> 
+        <fa name="street-view fa-lg"></fa>&nbsp;&nbsp;<a href="/home/list" color="primary">MAC Tracking & Metrics</a>
+        <br><br> 
+        <fa name="file fa-lg"></fa>&nbsp;&nbsp; <a href="/home/reports" color="primary">Reporting & Analytics</a>
         <br>
         <br>
         <br>
-        <div style="text-align: center;"><h6><strong>Data Management</strong></h6></div>
+        <div style="text-align: center;"><h6>DATA MANAGEMENT</h6></div>
         <mat-divider></mat-divider>
         <br>
         <fa name="upload fa-lg"></fa>&nbsp;&nbsp;<a href="/home" color="primary">Upload/Add Data</a>
@@ -21,7 +28,7 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center;"><h6><strong>Administration</strong></h6></div>
+        <div style="text-align: center;"><h6>ADMINISTRATION</h6></div>
         <mat-divider></mat-divider>
         <br>
         <fa name="cog fa-lg"></fa>&nbsp;&nbsp;<a href="/home" color="primary">Application Settings</a>
@@ -34,7 +41,7 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-        <button (click)="opened=!opened" mat-raised-button color="accent">
+        <button (click)="opened=!opened" mat-raised-button color="accent" class="mat-elevation-z8">
             <fa name="bars fa-lg"></fa>
         </button>
     </mat-sidenav-content>
@@ -42,6 +49,12 @@
 </div>
 
 <div id="right-side">
-<app-dashboard></app-dashboard>
+    <app-card-dashboard *ngIf="router.url === '/home'"></app-card-dashboard>
+    <app-dashboard *ngIf="router.url === '/home/table'"></app-dashboard>
+    <app-heat-map *ngIf="router.url === '/home/heatmap'"></app-heat-map>
+    <app-graph-view *ngIf="router.url === '/home/graph'"></app-graph-view>
+    <app-list-view *ngIf="router.url === '/home/list'"></app-list-view>
+    <app-reporting *ngIf="router.url === '/home/reports'"></app-reporting>
+    
 </div>
 

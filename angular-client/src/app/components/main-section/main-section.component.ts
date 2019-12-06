@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-section',
@@ -12,7 +13,7 @@ export class MainSectionComponent implements OnInit {
 
   public opened: boolean;
 
-  constructor(private apiService : ApiService, private dashboardComponent: DashboardComponent) { 
+  constructor(private apiService : ApiService, private dashboardComponent: DashboardComponent, public router : Router) { 
 
 
   }

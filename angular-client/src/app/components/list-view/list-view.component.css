@@ -1,0 +1,145 @@
+h6 {
+    font-weight: bold;
+    color:  #006633;
+}
+
+h3 {
+  font-weight: bold;
+  padding-top: 2%;
+  color: #046A38;
+}
+
+
+agm-map {
+  height: 650px;
+}
+
+iframe {
+    overflow: scroll;
+}
+
+/* Structure */
+table {
+    width: 100%;
+  
+  }
+
+  mat-panel-title, mat-panel-description, h6 {
+    font-family: 'Raleway',  sans-serif;
+  }
+
+  
+ .table-container {
+   overflow: auto;
+   height: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-button {
+    background-color: #02814E;
+    font-family: 'Raleway',  sans-serif;
+  }
+
+  .mat-button span {
+    color: white;
+  }
+
+  mat-divider {
+    background-color: #046A38;
+    height: 2px;
+}
+
+  .drop-box {
+    cursor: pointer;
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    text-align: center;
+    padding: 40px;
+  }
+   
+  .drag-over-title {
+    display: none;
+  }
+   
+  .drop-box.dragover {
+    opacity: 0.6;
+  }
+   
+  .drop-box.dragover .drag-over-title {
+    display: block;
+  }
+   
+  .drop-box.dragover .drag-in-title {
+    display: none;
+  }
+   
+  input[type='file'] {
+    display: none;
+  }
+
+  .iframe-container {
+    overflow: hidden;
+    padding-top: 26.25%;
+    position: relative;
+  }
+   
+  .iframe-container iframe {
+     border: 0;
+     height: 100%;
+     left: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+  }
+
+  mat-progress-bar {
+    color:  #006633;
+  }
+
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: #006633;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #ECECEC;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-element-description {
+    padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
