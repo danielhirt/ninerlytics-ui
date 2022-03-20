@@ -3,6 +3,8 @@ Upsteam repository for user interface and front-end functionality.
 
 Documentation Author: Daniel Hirt, dhirt@uncc.edu
 
+Backend Repo: https://github.com/danielhirt/ninerlytics-api
+
 ## Initial Setup & Dependencies
 
 UI Development Version: **v1.0.4-SPRT-3**
